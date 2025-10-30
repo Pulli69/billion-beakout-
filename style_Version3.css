@@ -1,0 +1,44 @@
+:root{
+  --bg:#0f1720;
+  --panel:#0b1220;
+  --accent:#ffd166;
+  --muted:#8b98a8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:linear-gradient(180deg,var(--bg),#07101a);font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;color:#e6eef6}
+#ui{
+  position:fixed;left:12px;top:12px;z-index:10;background:rgba(6,10,14,0.6);backdrop-filter:blur(6px);padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);
+  display:flex;flex-direction:column;gap:8px;max-width:360px;
+}
+#title{font-weight:700;color:var(--accent);letter-spacing:0.6px}
+#hud{display:flex;gap:12px;font-size:14px;color:var(--muted)}
+#controls{display:flex;gap:8px;align-items:center}
+button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#dbe9f7;padding:6px 10px;border-radius:6px;cursor:pointer}
+button:hover{border-color:rgba(255,255,255,0.12)}
+canvas{display:block;width:100vw;height:100vh}
+@media (min-width:800px){
+  canvas{max-width:1100px;max-height:700px;margin:0 auto;display:block;position:relative;left:0;right:0}
+}
+
+/* Images panel */
+#imagesPanel summary{cursor:pointer;padding:6px 8px;border-radius:6px;background:rgba(255,255,255,0.02)}
+.image-row{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:13px}
+.image-row input[type=file]{color:transparent}
+.image-row button{padding:4px 8px;font-size:12px}
+
+/* Game Over overlay */
+#gameOverOverlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:40}
+#gameOverOverlay.hidden{display:none}
+.go-card{width:420px;max-width:92%;background:linear-gradient(180deg,#07101a,#0b1420);border:1px solid rgba(255,255,255,0.04);padding:16px;border-radius:10px;box-shadow:0 8px 30px rgba(2,6,12,0.75)}
+.go-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.go-title{font-size:20px;color:var(--accent);font-weight:700}
+.go-score{color:var(--muted)}
+.go-body{display:flex;gap:12px}
+.go-image-wrap{width:140px;height:100px;border-radius:8px;overflow:hidden;background:rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center}
+.go-image-wrap img{width:100%;height:100%;object-fit:cover}
+.go-image-placeholder{color:var(--muted);font-size:12px;padding:8px;text-align:center}
+.go-judges{flex:1;display:flex;flex-direction:column;justify-content:center}
+.go-buttons{display:flex;gap:8px;margin-top:6px}
+.go-result{margin-top:10px;padding:8px;border-radius:6px;background:rgba(255,255,255,0.02);color:#dbe9f7;font-size:13px}
+.go-result.hidden{display:none}
+.go-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}

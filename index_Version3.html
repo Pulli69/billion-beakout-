@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Super Breakout — image placeholders & judged Game Over</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="ui">
+    <div id="title">Super Breakout</div>
+    <div id="hud">
+      <div>Score: <span id="score">0</span></div>
+      <div>Lives: <span id="lives">3</span></div>
+      <div>Level: <span id="level">1</span></div>
+    </div>
+
+    <div id="controls">
+      <button id="startBtn">Start / Restart</button>
+      <button id="pauseBtn">Pause</button>
+      <label for="soundToggle"><input type="checkbox" id="soundToggle" checked /> Sound</label>
+    </div>
+
+    <details id="imagesPanel">
+      <summary>Images (upload or use placeholders)</summary>
+      <div class="image-row">
+        <label>Paddle image <input type="file" id="paddleImageInput" accept="image/*"/></label>
+        <button id="clearPaddle">Clear</button>
+      </div>
+      <div class="image-row">
+        <label>Ball image <input type="file" id="ballImageInput" accept="image/*"/></label>
+        <button id="clearBall">Clear</button>
+      </div>
+      <div class="image-row">
+        <label>Brick image <input type="file" id="brickImageInput" accept="image/*"/></label>
+        <button id="clearBrick">Clear</button>
+      </div>
+      <div class="image-row">
+        <label>Background image <input type="file" id="bgImageInput" accept="image/*"/></label>
+        <button id="clearBg">Clear</button>
+      </div>
+      <div class="image-row">
+        <label>Game Over image <input type="file" id="gameOverImageInput" accept="image/*"/></label>
+        <button id="clearGameOver">Clear</button>
+      </div>
+      <div style="font-size:12px;color:#9aa8b6;margin-top:6px">Images are saved locally in your browser (localStorage) so you can change them later.</div>
+    </details>
+  </div>
+
+  <canvas id="game"></canvas>
+
+  <div id="gameOverOverlay" class="hidden" role="dialog" aria-hidden="true">
+    <div class="go-card">
+      <div class="go-header">
+        <div class="go-title">Game Over</div>
+        <div class="go-score">Score: <span id="goRawScore">0</span></div>
+      </div>
+      <div class="go-body">
+        <div class="go-image-wrap" id="goImageWrap">
+          <div class="go-image-placeholder">No image</div>
+        </div>
+        <div class="go-judges">
+          <div class="go-judge">Pick Judgement</div>
+          <div class="go-buttons">
+            <button id="judgeBot">Bot</button>
+            <button id="judgeHuman">Human</button>
+            <button id="judgeVerified">Verified Human</button>
+          </div>
+        </div>
+        <div id="goResult" class="go-result hidden"></div>
+      </div>
+      <div class="go-actions">
+        <button id="goRestart">Restart</button>
+        <button id="goClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
